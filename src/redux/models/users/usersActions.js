@@ -6,22 +6,8 @@ import {
 } from './usersTypes';
 // API
 import { API, api } from '../../api';
-// Additional Imports
+// config
 import config from '../../../common/config';
-
-export const fetchUsers = () => (api({
-  type: API,
-  payload: {
-    url: {
-      base: config.api.url,
-      endpoint: 'users',
-    },
-    method: 'get',
-    success: (data) => usersGetData(data),
-    failure: (data) => usersHasError(data),
-    loader: (data) => usersIsLoading(data),
-  },
-}));
 
 export const usersIsLoading = (isLoading) => ({
   type: USERS_IS_LOADING,
@@ -37,3 +23,17 @@ export const usersHasError = (data) => ({
   type: USERS_HAS_ERROR,
   data,
 });
+
+export const fetchUsers = (firstIndex = 0, endIndex = 10, orderBy = 'department', withTasks = true) => (api({
+  type: API,
+  payload: {
+    url: {
+      base: config.api.url,
+      endpoint: `/users/?orderBy=${orderBy}&firstIndex=${firstIndex}&endIndex=${endIndex}&withTasks=${withTasks}`, // TEMP
+    },
+    method: 'get',
+    success: (data) => usersGetData(data),
+    failure: (data) => usersHasError(data),
+    loader: (data) => usersIsLoading(data),
+  },
+}));

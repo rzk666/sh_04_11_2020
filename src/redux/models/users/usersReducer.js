@@ -1,5 +1,3 @@
-// Next SSR hydrate
-import { HYDRATE } from 'next-redux-wrapper';
 // Initial state
 import { INITIAL_STATE } from '../../../common/app-const';
 // Types
@@ -9,13 +7,9 @@ import {
   USERS_GET_DATA,
 } from './usersTypes';
 
+// This is temp and will change soon
 const users = (state = INITIAL_STATE.users, action) => {
-  const { payload } = action;
   switch (action.type) {
-    case HYDRATE:
-      return {
-        ...payload.users,
-      };
     case USERS_IS_LOADING: {
       return { ...state, isLoading: action.isLoading };
     }
