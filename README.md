@@ -6,7 +6,10 @@
     * Semantic UI React
     * 
 
-## Run locally
+## Misc. Notes
+* I ejected the project to edit the ESLint plugin in webpack, for some reason ESLint was failing the project compilation due to warnings, and this is a quick fix I found.
+
+## Run Locally
 Rename .env.exmaple -> .env
 yarn install
 yarn start
