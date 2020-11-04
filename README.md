@@ -9,6 +9,8 @@
 ## Misc. Notes
 * I ejected the project to edit the ESLint plugin in webpack, for some reason ESLint was failing the project compilation due to warnings, and this is a quick fix I found.
 
+* This project assumes we would communicate with our server using a token of some sort
+
 ## Run Locally
 Rename .env.exmaple -> .env
 yarn install
